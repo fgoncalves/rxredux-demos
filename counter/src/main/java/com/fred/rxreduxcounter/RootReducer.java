@@ -15,9 +15,6 @@ public class RootReducer implements Reducer<CounterState, Actions.CounterAction>
     return Observable.create(new Observable.OnSubscribe<CounterState>() {
       @Override public void call(Subscriber<? super CounterState> subscriber) {
         switch (counterAction.getType()) {
-          case INITIAL:
-            subscriber.onNext(counterState);
-            break;
           case INCREMENT:
             subscriber.onNext(new CounterState(counterState.getValue() + 1));
             break;

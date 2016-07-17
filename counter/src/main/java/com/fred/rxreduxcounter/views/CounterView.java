@@ -61,6 +61,7 @@ public class CounterView extends RelativeLayout {
   @Override protected void onAttachedToWindow() {
     super.onAttachedToWindow();
     storeSubscription = store.subscribe(storeSubscriber);
+    drawState(store.state());
   }
 
   @Override protected void onDetachedFromWindow() {

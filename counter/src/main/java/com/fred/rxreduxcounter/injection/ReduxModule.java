@@ -45,6 +45,6 @@ import rx.schedulers.Schedulers;
   public Store<CounterState, Actions.CounterAction> providesStore(RootReducer rootReducer,
       SchedulerTransformer schedulerTransformer,
       @Named("initial.state") CounterState initialState) {
-    return StoreImpl.create(rootReducer, initialState, Actions.initial, schedulerTransformer);
+    return StoreImpl.create(rootReducer, initialState, schedulerTransformer);
   }
 }
