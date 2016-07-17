@@ -2,6 +2,7 @@ package com.fred.rxreduxcounter.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import butterknife.BindView;
@@ -29,7 +30,7 @@ public class CounterView extends RelativeLayout {
     }
 
     @Override public void onError(Throwable e) {
-
+      Log.e(getClass().getSimpleName(), "failed to update counter state", e);
     }
 
     @Override public void onNext(CounterState counterState) {
