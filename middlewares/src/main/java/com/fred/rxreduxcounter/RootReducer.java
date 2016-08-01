@@ -1,8 +1,6 @@
 package com.fred.rxreduxcounter;
 
 import com.fred.rxredux.Reducer;
-import rx.Observable;
-import rx.Subscriber;
 
 /**
  * The application root reducer
@@ -10,20 +8,14 @@ import rx.Subscriber;
  * Created by fred on 16.07.16.
  */
 public class RootReducer implements Reducer<CounterState, Actions.CounterAction> {
-  @Override public rx.Observable<CounterState> reduce(final Actions.CounterAction counterAction,
-      final CounterState counterState) {
-    return Observable.create(new Observable.OnSubscribe<CounterState>() {
-      @Override public void call(Subscriber<? super CounterState> subscriber) {
-        switch (counterAction.getType()) {
-          case INCREMENT:
-            subscriber.onNext(new CounterState(counterState.getValue() + 1));
-            break;
-          case DECREMENT:
-            subscriber.onNext(new CounterState(counterState.getValue() - 1));
-            break;
-        }
-        subscriber.onCompleted();
-      }
-    });
+  @Override
+  public CounterState call(Actions.CounterAction counterAction, CounterState counterState) {
+    switch (counterAction.getType()) {
+      case INCREMENT:
+        return new CounterState(counterState.getValue() + 1);
+      case DECREMENT:
+        return new CounterState(counterState.getValue() - 1);
+    }
+    throw new RuntimeException("Unknown action type: " + counterAction.getType());
   }
 }

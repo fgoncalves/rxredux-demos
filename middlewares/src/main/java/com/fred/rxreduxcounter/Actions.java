@@ -10,7 +10,8 @@ import com.fred.rxredux.Action;
 public class Actions {
   public enum ActionType {
     INCREMENT,
-    DECREMENT
+    DECREMENT,
+    UNKNOWN_ACTION
   }
 
   public static class CounterAction extends Action<ActionType> {
@@ -21,4 +22,5 @@ public class Actions {
 
   public static final CounterAction increment = new CounterAction(ActionType.INCREMENT);
   public static final CounterAction decrement = new CounterAction(ActionType.DECREMENT);
+  public static final CounterAction unknown = new CounterAction(ActionType.UNKNOWN_ACTION);
 }

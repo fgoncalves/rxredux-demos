@@ -14,19 +14,19 @@ import javax.inject.Inject;
  * <p/>
  * Created by fred on 17.07.16.
  */
-public class LoggerMiddleware implements Middleware<Actions.CounterAction, CounterState> {
-  @Inject public LoggerMiddleware() {
+public class CrashReporterMiddleware implements Middleware<Actions.CounterAction, CounterState> {
+  @Inject public CrashReporterMiddleware() {
   }
 
   @Override public CounterState call(Store<CounterState, Actions.CounterAction> store,
       Actions.CounterAction counterAction, Dispatch<Actions.CounterAction, CounterState> next) {
-    Log.d(LoggerMiddleware.class.getSimpleName(),
-        "---> Action dispatched: " + counterAction.getType());
-    Log.d(LoggerMiddleware.class.getSimpleName(), "---> State: " + store.state());
-    CounterState state = next.call(counterAction);
-    Log.d(LoggerMiddleware.class.getSimpleName(),
-        "<--- Action dispatched: " + counterAction.getType());
-    Log.d(LoggerMiddleware.class.getSimpleName(), "<--- State: " + store.state());
-    return state;
+    CounterState state = null;
+    try {
+      state = next.call(counterAction);
+    } catch (Throwable throwable) {
+      // here do the crash reporting. For now simply log
+      Log.e(CrashReporterMiddleware.class.getSimpleName(), "Caught exception:", throwable);
+    }
+    return null;
   }
 }

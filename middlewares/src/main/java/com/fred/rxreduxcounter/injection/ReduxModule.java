@@ -7,10 +7,11 @@ import com.fred.rxredux.transformers.SchedulerTransformer;
 import com.fred.rxreduxcounter.Actions;
 import com.fred.rxreduxcounter.CounterState;
 import com.fred.rxreduxcounter.RootReducer;
+import com.fred.rxreduxcounter.middlewares.CrashReporterMiddleware;
 import com.fred.rxreduxcounter.middlewares.LoggerMiddleware;
 import dagger.Module;
 import dagger.Provides;
-import java.util.Collections;
+import java.util.Arrays;
 import javax.inject.Named;
 import javax.inject.Singleton;
 import rx.Observable;
@@ -41,9 +42,15 @@ import rx.schedulers.Schedulers;
   }
 
   @Provides @Singleton @Named("logger")
-  public Middleware<CounterState, Actions.CounterAction> providesLoggerMiddleware(
+  public Middleware<Actions.CounterAction, CounterState> providesLoggerMiddleware(
       LoggerMiddleware loggerMiddleware) {
     return loggerMiddleware;
+  }
+
+  @Provides @Singleton @Named("crash.reporter")
+  public Middleware<Actions.CounterAction, CounterState> providesCrashReporterMiddleware(
+      CrashReporterMiddleware crashReporterMiddleware) {
+    return crashReporterMiddleware;
   }
 
   @Provides @Singleton public RootReducer providesRootReducer() {
@@ -53,8 +60,10 @@ import rx.schedulers.Schedulers;
   @Provides @Singleton
   public Store<CounterState, Actions.CounterAction> providesStore(RootReducer rootReducer,
       SchedulerTransformer schedulerTransformer, @Named("initial.state") CounterState initialState,
-      @Named("logger") Middleware<CounterState, Actions.CounterAction> loggerMiddleware) {
+      @Named("logger") Middleware<Actions.CounterAction, CounterState> loggerMiddleware,
+      @Named("crash.reporter")
+      Middleware<Actions.CounterAction, CounterState> crashReporterMiddleware) {
     return StoreImpl.create(rootReducer, initialState, schedulerTransformer,
-        Collections.singletonList(loggerMiddleware));
+        Arrays.asList(crashReporterMiddleware, loggerMiddleware));
   }
 }

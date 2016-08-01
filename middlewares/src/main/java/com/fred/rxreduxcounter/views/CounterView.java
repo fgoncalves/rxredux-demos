@@ -77,6 +77,10 @@ public class CounterView extends RelativeLayout {
     store.dispatch(Actions.increment);
   }
 
+  @OnClick(R.id.button_error) public void error() {
+    store.dispatch(Actions.unknown);
+  }
+
   private void drawState(CounterState counterState) {
     counterValue.setText(String.valueOf(counterState.getValue()));
   }
