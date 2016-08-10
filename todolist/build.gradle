@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
   compileSdkVersion 24
@@ -20,8 +21,15 @@ android {
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+  apt project.libraries.dagger_compiler
+  apt project.libraries.butterknife_compiler
+
+  compile fileTree(dir: '../libs', include: ['*.jar'])
+  compile project.libraries.appcompat
+  compile project.libraries.dagger
+  compile project.libraries.butterknife
+  compile project.libraries.rx
+  compile project.libraries.design
+
   testCompile 'junit:junit:4.12'
-  compile 'com.android.support:appcompat-v7:24.1.1'
-  compile 'com.android.support:design:24.1.1'
 }
