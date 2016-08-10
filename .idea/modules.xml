@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/counter/counter.iml" filepath="$PROJECT_DIR$/counter/counter.iml" />
       <module fileurl="file://$PROJECT_DIR$/middlewares/middlewares.iml" filepath="$PROJECT_DIR$/middlewares/middlewares.iml" />
-      <module fileurl="file://$PROJECT_DIR$/middlewares/middlewares.iml" filepath="$PROJECT_DIR$/middlewares/middlewares.iml" />
       <module fileurl="file://$PROJECT_DIR$/rxredux-demos.iml" filepath="$PROJECT_DIR$/rxredux-demos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/todolist/todolist.iml" filepath="$PROJECT_DIR$/todolist/todolist.iml" />
     </modules>
   </component>
 </project>
