@@ -1,4 +1,4 @@
-package com.fred.rxreduxcounter;
+package com.rxredux.demos.rxreduxcounter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,10 +6,11 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.fred.rxreduxcounter.injection.AppComponent;
-import com.fred.rxreduxcounter.injection.DaggerAppComponent;
-import com.fred.rxreduxcounter.injection.ReduxModule;
-import com.fred.rxreduxcounter.views.CounterView;
+import com.fred.rxreduxcounter.R;
+import com.rxredux.demos.middlewares.injection.AppComponent;
+import com.rxredux.demos.middlewares.injection.DaggerAppComponent;
+import com.rxredux.demos.middlewares.injection.ReduxModule;
+import com.rxredux.demos.middlewares.views.CounterView;
 
 public class MainActivity extends AppCompatActivity {
   @BindView(R.id.main_content) FrameLayout mainContent;

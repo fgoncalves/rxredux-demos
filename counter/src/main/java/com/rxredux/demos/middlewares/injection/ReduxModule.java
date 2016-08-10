@@ -1,11 +1,11 @@
-package com.fred.rxreduxcounter.injection;
+package com.rxredux.demos.middlewares.injection;
 
 import com.fred.rxredux.Store;
 import com.fred.rxredux.StoreImpl;
 import com.fred.rxredux.transformers.SchedulerTransformer;
-import com.fred.rxreduxcounter.Actions;
-import com.fred.rxreduxcounter.CounterState;
-import com.fred.rxreduxcounter.RootReducer;
+import com.rxredux.demos.rxreduxcounter.Actions;
+import com.rxredux.demos.rxreduxcounter.CounterState;
+import com.rxredux.demos.rxreduxcounter.RootReducer;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Named;

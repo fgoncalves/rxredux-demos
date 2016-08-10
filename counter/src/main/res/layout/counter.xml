@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.fred.rxreduxcounter.views.CounterView
+<com.rxredux.demos.middlewares.views.CounterView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.fred.rxreduxcounter.MainActivity"
+    tools:context="com.rxredux.demos.rxreduxcounter.MainActivity"
     >
 
   <TextView
@@ -42,4 +42,4 @@
       android:text="+"
       android:layout_marginTop="10dp"
       />
-</com.fred.rxreduxcounter.views.CounterView>
+</com.rxredux.demos.middlewares.views.CounterView>

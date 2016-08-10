@@ -1,6 +1,6 @@
-package com.fred.rxreduxcounter.injection;
+package com.rxredux.demos.middlewares.injection;
 
-import com.fred.rxreduxcounter.views.CounterView;
+import com.rxredux.demos.middlewares.views.CounterView;
 import dagger.Component;
 import javax.inject.Singleton;
 

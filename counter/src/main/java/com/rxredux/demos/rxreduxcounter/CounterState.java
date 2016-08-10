@@ -1,4 +1,4 @@
-package com.fred.rxreduxcounter;
+package com.rxredux.demos.rxreduxcounter;
 
 import com.fred.rxredux.State;
 
