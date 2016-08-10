@@ -1,14 +1,14 @@
-package com.fred.rxreduxcounter.injection;
+package com.rxredux.demos.middlewares.injection;
 
 import com.fred.rxredux.Middleware;
 import com.fred.rxredux.Store;
 import com.fred.rxredux.StoreImpl;
 import com.fred.rxredux.transformers.SchedulerTransformer;
-import com.fred.rxreduxcounter.Actions;
-import com.fred.rxreduxcounter.CounterState;
-import com.fred.rxreduxcounter.RootReducer;
-import com.fred.rxreduxcounter.middlewares.CrashReporterMiddleware;
-import com.fred.rxreduxcounter.middlewares.LoggerMiddleware;
+import com.rxredux.demos.middlewares.Actions;
+import com.rxredux.demos.middlewares.CounterState;
+import com.rxredux.demos.middlewares.RootReducer;
+import com.rxredux.demos.middlewares.middlewares.CrashReporterMiddleware;
+import com.rxredux.demos.middlewares.middlewares.LoggerMiddleware;
 import dagger.Module;
 import dagger.Provides;
 import java.util.Arrays;

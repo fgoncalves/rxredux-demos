@@ -1,4 +1,4 @@
-package com.fred.rxreduxcounter;
+package com.rxredux.demos.middlewares;
 
 import com.fred.rxredux.State;
 

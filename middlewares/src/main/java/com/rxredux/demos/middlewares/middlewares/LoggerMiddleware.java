@@ -1,11 +1,11 @@
-package com.fred.rxreduxcounter.middlewares;
+package com.rxredux.demos.middlewares.middlewares;
 
 import android.util.Log;
 import com.fred.rxredux.Dispatch;
 import com.fred.rxredux.Middleware;
 import com.fred.rxredux.Store;
-import com.fred.rxreduxcounter.Actions;
-import com.fred.rxreduxcounter.CounterState;
+import com.rxredux.demos.middlewares.Actions;
+import com.rxredux.demos.middlewares.CounterState;
 import javax.inject.Inject;
 
 /**

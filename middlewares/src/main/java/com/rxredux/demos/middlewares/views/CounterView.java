@@ -1,4 +1,4 @@
-package com.fred.rxreduxcounter.views;
+package com.rxredux.demos.middlewares.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,8 +9,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.fred.rxredux.Store;
-import com.fred.rxreduxcounter.Actions;
-import com.fred.rxreduxcounter.CounterState;
+import com.rxredux.demos.middlewares.Actions;
+import com.rxredux.demos.middlewares.CounterState;
 import com.fred.rxreduxcounter.R;
 import javax.inject.Inject;
 import rx.Subscriber;
