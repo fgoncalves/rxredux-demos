@@ -1,9 +1,10 @@
 package com.rxredux.demos.todolist.injection;
 
-import com.rxredux.demos.todolist.states.TodoList;
+import com.rxredux.demos.todolist.views.MainView;
 import dagger.Component;
 import javax.inject.Singleton;
 
-@Singleton @Component(modules = { ReduxModule.class }) public interface AppComponent {
-  void inject(TodoList todoList);
+@Singleton @Component(modules = { ReduxModule.class, AppModule.class })
+public interface AppComponent {
+  void inject(MainView mainView);
 }

@@ -1,10 +1,16 @@
 package com.rxredux.demos.todolist.views.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import com.fred.rxredux.Store;
+import com.rxredux.demos.todolist.R;
 import com.rxredux.demos.todolist.actions.todos.TodoAction;
+import com.rxredux.demos.todolist.states.Todo;
 import com.rxredux.demos.todolist.states.TodoList;
 import javax.inject.Inject;
 
@@ -16,20 +22,25 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    return null;
+    return new ViewHolder(
+        LayoutInflater.from(parent.getContext()).inflate(R.layout.todo_list_item, parent, false));
   }
 
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
-
+    Todo todo = store.state().getTodoList().get(position);
+    holder.textView.setText(todo.getText());
   }
 
   @Override public int getItemCount() {
-    return 0;
+    return store.state().getTodoList().size();
   }
 
   public class ViewHolder extends RecyclerView.ViewHolder {
+    @BindView(R.id.todo_text) TextView textView;
+
     public ViewHolder(View itemView) {
       super(itemView);
+      ButterKnife.bind(this, itemView);
     }
   }
 }
