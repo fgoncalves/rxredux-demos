@@ -71,6 +71,7 @@ public class MainView extends CoordinatorLayout {
       }
     });
     todoListView.setAdapter(adapter);
+    if (isInEditMode()) return;
     subscription = store.subscribe(new TodoListSubscriber());
   }
 
