@@ -1,5 +1,6 @@
 package com.rxredux.demos.todolist.views.adapters;
 
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,11 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     Todo todo = store.state().getTodoList().get(position);
     holder.textView.setText(todo.getText());
+    if (todo.isDone()) {
+      holder.textView.setPaintFlags(holder.textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+    } else {
+      holder.textView.setPaintFlags(holder.textView.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+    }
   }
 
   @Override public int getItemCount() {
@@ -46,6 +52,10 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
 
     @OnClick(R.id.delete_button) public void deleteTodo() {
       store.dispatch(TodoAction.deleteTodo(textView.getText().toString()));
+    }
+
+    @OnClick(R.id.todo_text) public void toggleTodo() {
+      store.dispatch(TodoAction.toggleTodo(textView.getText().toString()));
     }
   }
 }

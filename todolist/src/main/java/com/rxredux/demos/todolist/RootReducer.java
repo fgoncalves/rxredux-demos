@@ -28,6 +28,19 @@ public class RootReducer implements Reducer<TodoList, TodoAction> {
 
         return todoList(newTodoList);
       }
+      case TOGGLE_TODO: {
+        List<Todo> newTodoList = new ArrayList<>();
+        for (Todo todo : todoList.getTodoList()) {
+          if (todo.getText().equals(todoAction.getText())) {
+            Todo newTodo = new Todo.Builder().done(!todo.isDone()).text(todo.getText()).build();
+            newTodoList.add(newTodo);
+          } else {
+            newTodoList.add(todo);
+          }
+        }
+
+        return todoList(newTodoList);
+      }
     }
 
     return todoList;
