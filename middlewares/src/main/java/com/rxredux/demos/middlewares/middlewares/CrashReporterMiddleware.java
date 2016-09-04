@@ -20,13 +20,12 @@ public class CrashReporterMiddleware implements Middleware<Actions.CounterAction
 
   @Override public CounterState call(Store<CounterState, Actions.CounterAction> store,
       Actions.CounterAction counterAction, Dispatch<Actions.CounterAction, CounterState> next) {
-    CounterState state = null;
     try {
-      state = next.call(counterAction);
+      next.call(counterAction);
     } catch (Throwable throwable) {
       // here do the crash reporting. For now simply log
       Log.e(CrashReporterMiddleware.class.getSimpleName(), "Caught exception:", throwable);
     }
-    return null;
+    return store.state();
   }
 }

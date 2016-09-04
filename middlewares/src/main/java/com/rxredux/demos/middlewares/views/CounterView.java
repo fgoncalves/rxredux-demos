@@ -11,7 +11,7 @@ import butterknife.OnClick;
 import com.fred.rxredux.Store;
 import com.rxredux.demos.middlewares.Actions;
 import com.rxredux.demos.middlewares.CounterState;
-import com.fred.rxreduxcounter.R;
+import com.rxredux.demos.middlewares.R;
 import javax.inject.Inject;
 import rx.Subscriber;
 import rx.Subscription;

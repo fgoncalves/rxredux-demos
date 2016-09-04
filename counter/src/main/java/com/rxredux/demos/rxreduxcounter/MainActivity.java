@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import com.fred.rxreduxcounter.R;
+import com.rxredux.demos.counter.R;
 import com.rxredux.demos.middlewares.injection.AppComponent;
 import com.rxredux.demos.middlewares.injection.DaggerAppComponent;
 import com.rxredux.demos.middlewares.injection.ReduxModule;
