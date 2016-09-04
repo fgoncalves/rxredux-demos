@@ -20,6 +20,14 @@ public class RootReducer implements Reducer<TodoList, TodoAction> {
 
         return todoList(newTodoList);
       }
+      case DELETE_TODO: {
+        List<Todo> newTodoList = new ArrayList<>();
+        for (Todo todo : todoList.getTodoList()) {
+          if (!todo.getText().equals(todoAction.getText())) newTodoList.add(todo);
+        }
+
+        return todoList(newTodoList);
+      }
     }
 
     return todoList;

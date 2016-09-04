@@ -26,4 +26,14 @@ public class TodoAction extends Action<TodoActionType> {
   public static TodoAction addTodo(String text) {
     return new TodoAction(TodoActionType.ADD_TODO, text);
   }
+
+  /**
+   * Delete a todo from the list. The text must match exactly the text on the todo
+   *
+   * @param text Todo's text
+   * @return A delete action for the given todo
+   */
+  public static TodoAction deleteTodo(String text) {
+    return new TodoAction(TodoActionType.DELETE_TODO, text);
+  }
 }

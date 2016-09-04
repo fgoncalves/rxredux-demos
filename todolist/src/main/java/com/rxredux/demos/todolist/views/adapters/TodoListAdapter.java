@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.fred.rxredux.Store;
 import com.rxredux.demos.todolist.R;
 import com.rxredux.demos.todolist.actions.todos.TodoAction;
@@ -41,6 +42,10 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
     public ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this, itemView);
+    }
+
+    @OnClick(R.id.delete_button) public void deleteTodo() {
+      store.dispatch(TodoAction.deleteTodo(textView.getText().toString()));
     }
   }
 }
