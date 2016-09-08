@@ -24,7 +24,7 @@ dependencies {
   apt project.libraries.dagger_compiler
   apt project.libraries.butterknife_compiler
 
-  compile fileTree(dir: '../libs', include: ['*.jar'])
+  compile project.libraries.redux
   compile project.libraries.appcompat
   compile project.libraries.dagger
   compile project.libraries.butterknife
