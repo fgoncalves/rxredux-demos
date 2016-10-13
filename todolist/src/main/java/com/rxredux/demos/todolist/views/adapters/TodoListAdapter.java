@@ -32,8 +32,10 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.ViewHo
     Todo todo = store.state().getTodoList().get(position);
     holder.textView.setText(todo.getText());
     if (todo.isDone()) {
+      holder.textView.setAlpha(0.5f);
       holder.textView.setPaintFlags(holder.textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     } else {
+      holder.textView.setAlpha(1);
       holder.textView.setPaintFlags(holder.textView.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
     }
   }
