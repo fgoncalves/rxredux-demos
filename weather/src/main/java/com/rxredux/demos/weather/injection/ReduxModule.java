@@ -1,13 +1,16 @@
 package com.rxredux.demos.weather.injection;
 
+import com.fred.rxredux.Middleware;
 import com.fred.rxredux.Store;
 import com.fred.rxredux.StoreImpl;
 import com.fred.rxredux.transformers.SchedulerTransformer;
+import com.rxredux.demos.weather.NetworkMiddleware;
 import com.rxredux.demos.weather.RootReducer;
 import com.rxredux.demos.weather.actions.WeatherAction;
 import com.rxredux.demos.weather.states.Weather;
 import dagger.Module;
 import dagger.Provides;
+import java.util.Collections;
 import javax.inject.Named;
 import javax.inject.Singleton;
 import rx.Observable;
@@ -28,6 +31,11 @@ import rx.schedulers.Schedulers;
     };
   }
 
+  @Provides @Singleton public Middleware<WeatherAction, Weather> providesNetworkMiddleware(
+      NetworkMiddleware networkMiddleware) {
+    return networkMiddleware;
+  }
+
   @Provides @Singleton public RootReducer provideRootReducer() {
     return new RootReducer();
   }
@@ -39,7 +47,9 @@ import rx.schedulers.Schedulers;
 
   @Provides @Singleton public Store<Weather, WeatherAction> providesStore(RootReducer rootReducer,
       SchedulerTransformer schedulerTransformer,
-      @Named("weather.root.reducer.initial.state") Weather initialState) {
-    return StoreImpl.create(rootReducer, initialState, schedulerTransformer);
+      @Named("weather.root.reducer.initial.state") Weather initialState,
+      Middleware<WeatherAction, Weather> middleware) {
+    return StoreImpl.create(rootReducer, initialState, schedulerTransformer,
+        Collections.singletonList(middleware));
   }
 }
