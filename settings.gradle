@@ -1,1 +1,1 @@
-include ':counter', ':middlewares', ':todolist'
+include ':counter', ':middlewares', ':todolist', ':weather'

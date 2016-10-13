@@ -1,0 +1,25 @@
+<resources>
+
+  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowTranslucentStatus">true</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+  </style>
+
+  <style name="MainText">
+    <item name="android:singleLine">true</item>
+    <item name="android:textSize">24sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/text</item>
+  </style>
+
+  <style name="SecondaryText" parent="MainText">
+    <item name="android:singleLine">false</item>
+    <item name="android:textStyle">normal</item>
+    <item name="android:textSize">20sp</item>
+  </style>
+
+</resources>

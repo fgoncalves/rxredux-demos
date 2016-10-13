@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.2"
+
+  defaultConfig {
+    applicationId "com.rxredux.demos.weather"
+    minSdkVersion 16
+    targetSdkVersion 24
+    versionCode 1
+    versionName "1.0"
+    vectorDrawables.useSupportLibrary = true
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+dependencies {
+  apt project.libraries.dagger_compiler
+  apt project.libraries.butterknife_compiler
+
+  compile project.libraries.redux
+  compile project.libraries.appcompat
+  compile project.libraries.dagger
+  compile project.libraries.butterknife
+  compile project.libraries.rx
+  compile project.libraries.design
+  compile project.libraries.constraint_layout
+  compile project.libraries.retrofit
+  compile project.libraries.rx
+  compile project.libraries.rxadapter
+  compile project.libraries.rxconverter
+}
