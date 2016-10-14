@@ -1,0 +1,56 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="18dp"
+        android:height="50dp"
+        android:viewportWidth="64.29214"
+        android:viewportHeight="180.68405">
+    <path
+        android:pathData="m44.14,122.16a27.14,28.21 0,0 1,14.56 31.2,27.14 28.21,0 0,1 -25.54,22.31 27.14,28.21 0,0 1,-27.06 -20.27,27.14 28.21,0 0,1 12.29,-32.24"
+        android:strokeColor="#000000"
+        android:fillColor="#00000000"
+        android:strokeWidth="10"/>
+    <path
+        android:pathData="m18.58,123.22 l0,-107.92"
+        android:strokeLineCap="round"
+        android:strokeColor="#000000"
+        android:fillColor="#00000000"
+        android:strokeWidth="10.10499954"
+        android:strokeLineJoin="miter"
+        android:strokeAlpha="1"/>
+    <path
+        android:pathData="m44.43,15.89 l0,106.73"
+        android:strokeLineCap="round"
+        android:strokeColor="#000000"
+        android:fillColor="#00000000"
+        android:strokeWidth="10"
+        android:strokeLineJoin="miter"
+        android:strokeAlpha="1"/>
+    <path
+        android:pathData="m18.38,18.48a13.33,12.96 90,0 1,6.43 -11.63,13.33 12.96,90 0,1 13.01,-0.03 13.33,12.96 90,0 1,6.48 11.6"
+        android:strokeColor="#000000"
+        android:fillColor="#00000000"
+        android:strokeWidth="10.0874157"/>
+    <path
+        android:pathData="m19.29,106.4 l12.86,0"
+        android:strokeLineCap="butt"
+        android:strokeColor="#000000"
+        android:fillColor="#00000000"
+        android:strokeWidth="10"
+        android:strokeLineJoin="miter"
+        android:strokeAlpha="1"/>
+    <path
+        android:pathData="m19.29,67.11 l12.14,0"
+        android:strokeLineCap="butt"
+        android:strokeColor="#000000"
+        android:fillColor="#00000000"
+        android:strokeWidth="10.82780647"
+        android:strokeLineJoin="miter"
+        android:strokeAlpha="1"/>
+    <path
+        android:pathData="m19.29,33.18 l11.43,0"
+        android:strokeLineCap="butt"
+        android:strokeColor="#000000"
+        android:fillColor="#00000000"
+        android:strokeWidth="11.09400463"
+        android:strokeLineJoin="miter"
+        android:strokeAlpha="1"/>
+</vector>

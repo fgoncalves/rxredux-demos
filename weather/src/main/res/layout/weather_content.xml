@@ -87,7 +87,7 @@
       app:layout_constraintBottom_toTopOf="@+id/temperature"
       app:layout_constraintLeft_toLeftOf="@+id/temperature"
       app:layout_constraintRight_toRightOf="@+id/temperature"
-      app:srcCompat="@mipmap/ic_launcher"
+      app:srcCompat="@drawable/ic_thermometer"
       />
 
   <ImageView
@@ -98,7 +98,7 @@
       app:layout_constraintBottom_toTopOf="@+id/humidity"
       app:layout_constraintLeft_toLeftOf="@+id/humidity"
       app:layout_constraintRight_toRightOf="@+id/humidity"
-      app:srcCompat="@mipmap/ic_launcher"
+      app:srcCompat="@drawable/ic_dropplet"
       />
 
   <ImageView
@@ -109,7 +109,7 @@
       app:layout_constraintBottom_toTopOf="@+id/wind_speed"
       app:layout_constraintLeft_toLeftOf="@+id/wind_speed"
       app:layout_constraintRight_toRightOf="@+id/wind_speed"
-      app:srcCompat="@mipmap/ic_launcher"
+      app:srcCompat="@drawable/ic_wind"
       />
 
   <TextView
@@ -150,11 +150,9 @@
       android:id="@+id/refresh"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginEnd="16dp"
-      android:layout_marginRight="16dp"
-      android:layout_marginTop="16dp"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@mipmap/ic_launcher"
+      app:srcCompat="@drawable/ic_refresh"
+      android:padding="16dp"
       />
 </android.support.constraint.ConstraintLayout>
