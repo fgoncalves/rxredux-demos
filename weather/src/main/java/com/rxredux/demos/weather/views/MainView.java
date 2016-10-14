@@ -1,7 +1,9 @@
 package com.rxredux.demos.weather.views;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.View;
@@ -58,6 +60,7 @@ public class MainView extends ConstraintLayout {
     if (isInEditMode()) return;
 
     subscription = store.subscribe(new StoreSubscriber());
+    store.dispatch(WeatherAction.fetch(COORDINATES.first, COORDINATES.second));
   }
 
   @Override protected void onDetachedFromWindow() {
@@ -79,12 +82,34 @@ public class MainView extends ConstraintLayout {
     }
 
     @Override public void onNext(Weather weather) {
+      if (weather.hasErrors()) {
+        progressBar.setVisibility(GONE);
+        weatherMainContent.setVisibility(GONE);
+        new AlertDialog.Builder(getContext()).setMessage(R.string.something_went_wrong)
+            .setPositiveButton(R.string.retry, new DialogInterface.OnClickListener() {
+              @Override public void onClick(DialogInterface dialogInterface, int i) {
+                store.dispatch(WeatherAction.fetch(COORDINATES.first, COORDINATES.second));
+              }
+            })
+            .setNeutralButton(R.string.cancel, new DialogInterface.OnClickListener() {
+              @Override public void onClick(DialogInterface dialogInterface, int i) {
+                // TODO: Do something....
+              }
+            })
+            .show();
+        return;
+      }
       if (weather.isFetching()) {
         progressBar.setVisibility(VISIBLE);
         weatherMainContent.setVisibility(GONE);
       } else {
         progressBar.setVisibility(GONE);
         weatherMainContent.setVisibility(VISIBLE);
+        description.setText(weather.getDescription());
+        temperature.setText(
+            getContext().getString(R.string.temperature, weather.getTemperatureInCelsius()));
+        humidity.setText(String.valueOf(weather.getHumidity()));
+        windSpeed.setText(getContext().getString(R.string.wind_speed, weather.getWindSpeed()));
       }
     }
   }

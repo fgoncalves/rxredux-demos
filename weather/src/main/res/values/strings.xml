@@ -1,3 +1,8 @@
 <resources>
   <string name="app_name">ReduxWeather</string>
+  <string name="something_went_wrong">Something unexpected happened</string>
+  <string name="retry">retry</string>
+  <string name="cancel">cancel</string>
+  <string name="temperature">%1$.2f °C</string>
+  <string name="wind_speed">%1$.2f m/s</string>
 </resources>

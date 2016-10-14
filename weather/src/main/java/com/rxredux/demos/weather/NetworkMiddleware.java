@@ -32,11 +32,12 @@ public class NetworkMiddleware implements Middleware<WeatherAction, Weather> {
           .compose(networkSchedulerTransformer.<WeatherData>applySchedulers())
           .subscribe(new Action1<WeatherData>() {
             @Override public void call(WeatherData weatherData) {
-
+              WeatherAction weatherAction = WeatherAction.gotInfo(weatherData);
+              dispatch.call(weatherAction);
             }
           }, new Action1<Throwable>() {
             @Override public void call(Throwable throwable) {
-
+              dispatch.call(WeatherAction.displayError());
             }
           });
     }

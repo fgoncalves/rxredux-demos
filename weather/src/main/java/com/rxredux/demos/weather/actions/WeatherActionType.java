@@ -5,5 +5,6 @@ package com.rxredux.demos.weather.actions;
  */
 public enum WeatherActionType {
   FETCH_WEATHER_INFO,
-  GOT_WEATHER_INFO
+  GOT_WEATHER_INFO,
+  DISPLAY_ERROR
 }
