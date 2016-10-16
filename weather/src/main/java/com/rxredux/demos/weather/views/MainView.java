@@ -16,6 +16,7 @@ import com.fred.rxredux.Store;
 import com.rxredux.demos.weather.R;
 import com.rxredux.demos.weather.actions.WeatherAction;
 import com.rxredux.demos.weather.states.Weather;
+import com.rxredux.demos.weather.states.WeatherCondition;
 import javax.inject.Inject;
 import rx.Subscriber;
 import rx.Subscription;
@@ -106,11 +107,37 @@ public class MainView extends ConstraintLayout {
         progressBar.setVisibility(GONE);
         weatherMainContent.setVisibility(VISIBLE);
         description.setText(weather.getDescription());
+        weatherLogo.setImageResource(getImageResource(weather.getWeatherCondition()));
         temperature.setText(
             getContext().getString(R.string.temperature, weather.getTemperatureInCelsius()));
         humidity.setText(String.valueOf(weather.getHumidity()));
         windSpeed.setText(getContext().getString(R.string.wind_speed, weather.getWindSpeed()));
       }
+    }
+  }
+
+  private int getImageResource(WeatherCondition weatherCondition) {
+    switch (weatherCondition) {
+      case CLEAR_SKY:
+        return R.drawable.ic_clear_sky;
+      case FEW_CLOUDS:
+        return R.drawable.ic_few_clouds;
+      case BROKEN_CLOUDS:
+        return R.drawable.ic_broken_clouds;
+      case MIST:
+        return R.drawable.ic_mist;
+      case RAIN:
+        return R.drawable.ic_rain;
+      case SCATTERED_CLOUDS:
+        return R.drawable.ic_scattered_clouds;
+      case SHOWER_RAIN:
+        return R.drawable.ic_shower_rain;
+      case SNOW:
+        return R.drawable.ic_snow;
+      case THUNDERSTORM:
+        return R.drawable.ic_thunderstorm;
+      default:
+        return 0;
     }
   }
 }

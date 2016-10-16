@@ -19,7 +19,7 @@ public class RootReducer implements Reducer<Weather, WeatherAction> {
       case GOT_WEATHER_INFO:
         WeatherData weatherData = action.getWeatherData();
         return Weather.builder()
-            .weatherCondition(WeatherCondition.CLEAR_SKY) //TODO: change this
+            .weatherCondition(getWeatherCondition(weatherData.getWeather().get(0).getId()))
             .description(weatherData.getWeather().get(0).getDescription())
             .humidity(weatherData.getMain().getHumidity())
             .windSpeed(weatherData.getWind().getSpeed().floatValue())
@@ -27,5 +27,24 @@ public class RootReducer implements Reducer<Weather, WeatherAction> {
             .build();
     }
     return weather;
+  }
+
+  private WeatherCondition getWeatherCondition(int id) {
+    if (id == 800) return WeatherCondition.CLEAR_SKY;
+    if (id == 801) return WeatherCondition.FEW_CLOUDS;
+    if (id == 802) return WeatherCondition.SCATTERED_CLOUDS;
+    if (id == 511) return WeatherCondition.SNOW;
+    if (between(803, id, 804)) return WeatherCondition.BROKEN_CLOUDS;
+    if (between(700, id, 799)) return WeatherCondition.MIST;
+    if (between(600, id, 699)) return WeatherCondition.SNOW;
+    if (between(530, id, 532)) return WeatherCondition.SHOWER_RAIN;
+    if (between(300, id, 399)) return WeatherCondition.SHOWER_RAIN;
+    if (between(200, id, 299)) return WeatherCondition.THUNDERSTORM;
+    if (between(500, id, 504)) return WeatherCondition.RAIN;
+    return WeatherCondition.UNKNOWN;
+  }
+
+  private boolean between(int a, int c, int b) {
+    return a <= c && c <= b;
   }
 }
